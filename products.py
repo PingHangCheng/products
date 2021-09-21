@@ -1,14 +1,20 @@
+import os #operating system 
+
 #第65課讀取檔案
 products = []
-with open('product.csv', 'r', encoding='utf-8') as f:
-    for line in f:
-        # s= line.strip().split(',')
-        # print(s)
-        if '商品, 價格' in line:
-            continue
-        name, price = line.strip().split(',')
-        products.append([name, price])
-print(products)
+if os.path.isfile('product.csv'): #檢查檔案在不在
+    print('yeah！找到檔案了')
+    with open('product.csv', 'r', encoding='utf-8') as f:
+        for line in f:
+            # s= line.strip().split(',')
+            # print(s)
+            if '商品, 價格' in line:
+                continue
+            name, price = line.strip().split(',')
+            products.append([name, price])
+    print(products)
+else:
+    print('找不到檔案……')
 #一維清單
 # products = []
 # while True:
